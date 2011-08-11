@@ -1,0 +1,7 @@
+<li>
+  <%= link_to trade.name, trade %>
+  <% if admin_player? %>
+    | <%= link_to "delete", trade, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{trade.id.to_s}" %>
+  <% end %>
+</li>

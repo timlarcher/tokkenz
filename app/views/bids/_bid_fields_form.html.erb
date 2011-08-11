@@ -1,0 +1,19 @@
+
+<%= form_for(@bid, @tokens) do |f| %>
+ <%= render 'shared/error_messages', :object => f.object %>
+ <div class="field">
+    <%= f.label :name, "Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+ <div class="field">
+    <%= f.label :description, "Description" %><br />
+    <%= f.text_area :description, :rows => 10 %>
+  </div>
+ <div class="field">
+  <% tokens_array = @tokens.all.map { |t| [t.character.name, t.id] } %>
+  <%= select_tag( :token_id, options_for_select(tokens_array) ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "submit" %>
+  </div>
+<% end %>

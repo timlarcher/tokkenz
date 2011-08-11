@@ -1,0 +1,9 @@
+<h1>list of stores</h1>
+
+<%= will_paginate %>
+
+<ul class="stores">
+  <%= render @stores %>
+</ul>
+
+<%= will_paginate %>

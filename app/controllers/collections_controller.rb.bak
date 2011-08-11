@@ -1,0 +1,57 @@
+class CollectionsController < ApplicationController
+
+  include SessionsHelper
+
+  before_filter :authenticate, :except => [ :show, :index ]
+  before_filter :admin_player, :except => [ :show, :index ]
+
+  def new
+    @pack = Pack.new
+    @title = "add new pack"
+  end
+
+  def create
+    @pack = Pack.new( :player_id => current_player.id,
+                      :series_id => params[:series_id],
+                      :quantity => Series.find(params[:series_id]).tokens_per_pack )
+    if @pack.save
+      flash.now[:success] = "pack added."
+      redirect_to @collection
+    else
+      @title = 'add new pack'
+      render 'new'
+    end
+  end
+
+  def index
+    @title = "list packs"
+    @pack = Pack.paginate( :page => params[:page] )
+  end
+
+  def show
+    @pack = Pack.find(params[:id])
+  end
+
+  def edit
+    @pack = Pack.find(params[:id])
+    @title = "edit pack"
+  end
+
+  def update
+    @pack = Pack.find(params[:id])
+    if @pack.update_attributes(params[:pack])
+      flash[:success] = "#{@pack.name} was successfully updated."
+      redirect_to @pack
+    else
+      @title = "edit pack"
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Pack.find(params[:id]).destroy
+    flash[:success] = "pack deleted."
+    redirect_to pack_path
+  end
+
+end

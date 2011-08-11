@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<h1>trade detail</h1>
+<p><br />
+<p>Trade name: <%= @trade.name %>, <%= @trade.id %>, <%= @trade.player_id %>
+<p>Token name: <%= @trade.tokens.length %>,
+<%= @trade.tokens.first.character.name %>
+<br /><br />
+
+<% if @trade.player_id == current_player.id %>
+  <ul class="bids">
+    <% @bids.each do |b| %>
+    <li><%= link_to b.tokens.first.character.name, b %>
+      | <%= link_to 'accept', accept_bid_path(:bid_id => b) %></li>
+    <% end %>
+  </ul>
+  <%= will_paginate(@bids) %>
+  <%= link_to 'cancel trade', cancel_trade_path %>
+<% else %>
+  <%= link_to 'bid', new_bid_path(:trade_id => @trade) %>
+<% end %>
+</p>

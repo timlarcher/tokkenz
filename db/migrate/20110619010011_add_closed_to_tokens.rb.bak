@@ -1,0 +1,9 @@
+class AddClosedToTokens < ActiveRecord::Migration
+  def self.up
+    add_column :Tokens, :closed, :boolean, :default => false
+  end
+
+  def self.down
+    remove_column :Tokens, :closed
+  end
+end

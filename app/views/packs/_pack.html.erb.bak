@@ -1,0 +1,7 @@
+<li>
+  <%= link_to pack.series.name, pack %>
+  <% if admin_player? %>
+    | <%= link_to "delete", pack, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{pack.id.to_s}" %>
+  <% end %>
+</li>

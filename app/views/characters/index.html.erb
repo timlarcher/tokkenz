@@ -1,0 +1,14 @@
+<h1>Listing characters</h1>
+
+<%= will_paginate %>
+
+<ul class="characters">
+  <%= render @characters %>
+</ul>
+
+<%= will_paginate %>
+
+
+<% if admin_player? %>
+<%= link_to 'create new character', new_character_path %>
+<% end %>

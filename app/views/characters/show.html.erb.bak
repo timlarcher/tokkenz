@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+Name, ID: <%= @character.name %>, <%= @character.id %>
+<br />Image: <%= @character.image %>
+<br />Desc:  <%= @character.description %>
+<br />Qty:   <%= @character.quantity %>
+<br />Series: <%= @character.series_id %>
+<br />Star: <%= @character.star_id %>
+<br /><br />
+<% if admin_player? %>
+<%= link_to 'edit this character', edit_character_path(@character) %> |
+<% end %>
+<%= link_to 'list characters', characters_path %>

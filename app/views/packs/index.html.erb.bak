@@ -1,0 +1,9 @@
+<h1>Listing series</h1>
+
+<%= will_paginate %>
+
+<ul class="packs">
+  <%= render @packs %>
+</ul>
+
+<%= will_paginate %>

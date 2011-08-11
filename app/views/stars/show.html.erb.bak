@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+Name, ID: <%= @star.name %>, <%= @star.id %>
+<br />Image: <%= @star.image %>
+<br />Bio: <%= @star.description %>
+<br />Birth date: <%= @star.birth_date %>
+<br />Birth place: <%= @star.birthplace %>
+<br /><br />
+<% if admin_player? %>
+<%= link_to 'edit this star', edit_star_path(@star) %> |
+<% end %>
+<%= link_to 'list stars', stars_path %>

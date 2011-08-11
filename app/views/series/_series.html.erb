@@ -1,0 +1,7 @@
+<li>
+  <%= link_to series.name, series %>
+  <% if admin_player? %>
+    | <%= link_to "delete", series, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{series.name}" %>
+  <% end %>
+</li>

@@ -1,0 +1,12 @@
+<li>
+  <%= link_to trade.name, trade %>
+  <% if current_player.id != trade.player_id %>
+    | <%= link_to 'bid', new_bid_path(:trade_id => trade) %>
+  <% else %>
+    | <%= link_to 'cancel', cancel_trade_path(trade) %>
+  <% end %>
+  <% if admin_player? %>
+    | <%= link_to "delete", trade, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{trade.id.to_s}" %>
+  <% end %>
+</li>

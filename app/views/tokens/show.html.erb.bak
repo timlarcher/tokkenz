@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<h1>token detail</h1>
+<p><br />
+<p>Token name: <%= @token.character.name %>
+<br />Series name: <%= @token.character.series.name %>
+<br />Token ID: <%= @token.id %>
+<br />Series ID: <%= @token.character.series.id %>
+<br />Character ID: <%= @token.character_id %>
+<br />Image: <%= @token.character.image %>
+<br />Desc: <%= @token.character.description %>
+<br />Release date: <%= @token.character.series.release_date %>
+<br /><br />
+
+<%= link_to 'trade!', trades_path(:token_id => token), :method => :post %>
+</p>

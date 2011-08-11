@@ -1,0 +1,82 @@
+
+class Tokens < ActiveRecord::Migration
+  def self.up
+    create_table :tokens do |t|
+      t.integer :player_id
+      t.integer :series_id
+      t.integer :character_id
+    end
+  end
+
+  def self.down
+    drop_table :tokens
+  end
+end
+
+
+class Packs < ActiveRecord::Migration
+  def self.up
+    create_table :packs do |t|
+      t.integer :player_id
+      t.integer :series_id
+      t.integer :quantity
+    end
+  end
+
+  def self.down
+    drop_table :packs
+  end
+end
+
+class Series < ActiveRecord::Migration
+  def self.up
+    create_table :series do |t|
+      t.string  :name
+      t.string  :image
+      t.text    :description
+      t.integer :tokens_per_pack
+      t.integer :packs_minted
+      t.integer :packs_issued
+      t.date    :release_date
+      t.date    :term_date
+    end
+  end
+
+  def self.down
+    drop_table :series
+  end
+end
+
+class Characters < ActiveRecord::Migration
+  def self.up
+    create_table :characters do |t|
+      t.integer :series_id
+      t.integer :star_id
+      t.string  :name
+      t.string  :image
+      t.text    :description
+      t.integer :quantity
+    end
+  end
+
+  def self.down
+    drop_table :characters
+  end
+end
+
+class Stars < ActiveRecord::Migration
+  def self.up
+    create_table :stars do |t|
+      t.string :name
+      t.string :image
+      t.text   :description
+      t.date   :birth_date
+      t.date   :death_date
+      t.string :birthplace
+    end
+  end
+
+  def self.down
+    drop_table :stars
+  end
+end

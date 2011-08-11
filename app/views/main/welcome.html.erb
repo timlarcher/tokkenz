@@ -1,0 +1,13 @@
+<h1>welcome to tokkenz!</h1>
+<hr />
+<% if signed_in? %>
+  <h3>welcome, <%= current_player.first_name %> </h3>
+<% else %>
+  <p>check out today's featured tokkenz!</p>
+  <p><%= link_to "what's new?", whats_new_path %></p>
+  <br />
+  <p><%= link_to "sign up now", signup_path %> to start collecting and find friends!
+  <br /> or
+  <br />
+  <%= link_to "sign in", signin_path %> to find new tokkenz or trade for new ones!</p>
+<% end %>

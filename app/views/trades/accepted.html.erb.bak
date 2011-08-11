@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h1>trade completed!</h1>
+<p><br />
+<p>Trade name: <%= @trade.name %>, <%= @trade.id %>, <%= @trade.player_id %>
+<p>you traded:
+<ul class="bids">
+  <% @trade.tokens.each do |t| %>
+    <li><%= t.character.name%>, <%= t.id %></li>
+  <% end %>
+</ul>
+<br /><br />
+for:
+<br /><br />
+<ul class="bids">
+  <% @bid.tokens.each do |t| %>
+    <li><%= t.character.name%>, <%= t.id %></li>
+  <% end %>
+</ul>
+</p>

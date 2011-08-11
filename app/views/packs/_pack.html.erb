@@ -1,0 +1,8 @@
+<li>
+  <%= link_to pack.series.name, pack %>
+  | <%= link_to 'open', tokens_path(:pack_id => pack), :method => :post %>
+  <% if admin_player? %>
+    | <%= link_to "delete", pack, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{pack.id.to_s}" %>
+  <% end %>
+</li>

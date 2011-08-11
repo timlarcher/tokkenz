@@ -1,0 +1,9 @@
+<li>
+  <%= link_to token.character.name, token %>,
+  <%= token.character.id %>, <%= token.id %>
+  | <%= link_to 'trade!', new_trade_path(:token_id => token.id) %>
+  <% if admin_player? %>
+    | <%= link_to "delete", token, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{token.id.to_s}" %>
+  <% end %>
+</li>

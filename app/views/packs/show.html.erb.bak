@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+Name, Pack ID, Series ID: <%= @series.name %>, <%= @pack.id %>, <%= @series.id %>
+<br />Image: <%= @series.image %>
+<br />Desc: <%= @series.description %>
+<br />Packs: <%= number_with_delimiter @pack.quantity %>
+<br />Tokens: <%= number_with_delimiter @series.tokens_per_pack %>
+<br />Release date: <%= @series.release_date %>
+<br /><br />
+
+<%= link_to 'list all my packs', packs_path %>

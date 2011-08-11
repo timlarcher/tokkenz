@@ -1,0 +1,8 @@
+<p>search results</p>
+
+
+<ul class="series">
+  <% @series.each do |s| %>
+    <li><%= s.name %>
+  <% end %>
+</ul>

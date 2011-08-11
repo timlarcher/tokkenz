@@ -1,0 +1,30 @@
+<%= form_for(@star) do |f| %>
+ <%= render 'shared/error_messages', :object => f.object %>
+ <div class="field">
+    <%= f.label :name, "Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+ <div class="field">
+    <%= f.label :image, "Image" %><br />
+    <%= f.text_field :image %>
+  </div>
+ <div class="field">
+    <%= f.label :description, "Bio" %><br />
+    <%= f.text_area :description, :rows => 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_date, "Date of birth" %><br />
+    <%= f.text_field :birth_date %>
+  </div>
+  <div class="field">
+    <%= f.label :death_date, "Date of death" %><br />
+    <%= f.text_field :death_date %>
+  </div>
+  <div class="field">
+    <%= f.label :birthplace, "Place of birth" %><br />
+    <%= f.text_field :birthplace %>
+  </div>
+  <div class="actions">
+    <%= f.submit "submit" %>
+  </div>
+<% end %>

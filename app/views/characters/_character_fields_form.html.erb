@@ -1,0 +1,30 @@
+<%= form_for(@character) do |f| %>
+ <%= render 'shared/error_messages', :object => f.object %>
+ <div class="field">
+    <%= f.label :name, "Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+ <div class="field">
+    <%= f.label :image, "Image" %><br />
+    <%= f.text_field :image %>
+  </div>
+ <div class="field">
+    <%= f.label :description, "Description" %><br />
+    <%= f.text_area :description, :rows => 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity, "Quantity" %><br />
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :series_id, "Series ID" %><br />
+    <%= f.text_field :series_id %>
+  </div>
+  <div class="field">
+    <%= f.label :star_id, "Star ID" %><br />
+    <%= f.text_field :star_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "submit" %>
+  </div>
+<% end %>

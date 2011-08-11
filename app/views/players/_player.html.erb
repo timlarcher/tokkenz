@@ -1,0 +1,7 @@
+<li>
+  <%= link_to player.handle, player %>
+  <% if current_player.admin? %>
+    | <%= link_to "delete", player, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{player.name}" %>
+  <% end %>
+</li>

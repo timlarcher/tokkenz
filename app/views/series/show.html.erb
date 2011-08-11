@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<h1>pack detail</h1>
+<br />
+<p>Name, ID: <%= @series.name %>, <%= @series.id %>
+<br />Image: <%= @series.image %>
+<br />Desc: <%= @series.description %>
+<br />Tokens/pack: <%= number_with_delimiter @series.tokens_per_pack %>
+<br />Packs minted: <%= number_with_delimiter @series.packs_minted %>
+<br />Packs issued: <%= number_with_delimiter @series.packs_issued %>
+<br />Release date: <%= @series.release_date %>
+<br /><br />
+
+<% if signed_in? and !admin_player? %>
+  <%= link_to 'buy now', packs_path(:series_id => @series), :method => :post %>
+<% end %>
+
+<% if admin_player? %>
+  <%= link_to 'edit this series', edit_series_path(@series) %> |
+<% end %>
+</p>

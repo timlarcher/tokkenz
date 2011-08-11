@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+Name, ID: <%= @player.handle %>, <%= @player.id %>
+<br />Real name: <%= @player.first_name %> <%= @player.last_name %>
+<br /><br />
+<h2>my stores</h2>
+<ul class="player_stores">
+  <% @stores.each do |store| %>
+    <li>
+      <%= link_to store.name, store %>
+    | <%= link_to "delete", store, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{store.id.to_s}" %>
+    </li>
+  <% end %>
+</ul>
+
+<% if admin_player? %>
+<%= link_to 'edit this player', edit_player_path(@player) %> |
+<% end %>

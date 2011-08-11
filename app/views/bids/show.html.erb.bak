@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<h1>bid detail</h1>
+<p><br />
+<p>bid name: <%= @bid.name %>, <%= @bid.id %>
+<p>Token name: <%= @bid.tokens.length %>,
+<%= @bid.tokens.first.character.name %>
+<br /><br />
+
+<% if @bid.player_id == current_player.id %>
+  <%= link_to 'cancel bid', cancel_bid_path %>
+<% elsif current_player.id == @bid.trade.player_id %>
+  <%= link_to 'accept', accept_bid_path %>
+<% end %>
+</p>

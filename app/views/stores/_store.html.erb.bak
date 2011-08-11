@@ -1,0 +1,7 @@
+<li>
+  <%= link_to bid.name, bid %>
+  <% if admin_player? %>
+    | <%= link_to "delete", bid, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{bid.id.to_s}" %>
+  <% end %>
+</li>

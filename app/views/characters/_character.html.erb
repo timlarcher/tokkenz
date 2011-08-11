@@ -1,0 +1,7 @@
+<li>
+  <%= link_to character.name, character %>
+  <% if current_player && current_player.admin? %>
+    | <%= link_to "delete", character, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{character.name}" %>
+  <% end %>
+</li>

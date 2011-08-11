@@ -1,0 +1,10 @@
+<li>
+  <%= link_to series.name, series %>
+  <% if current_player %>
+    | <%= link_to "add to cart", series, :controller => :cart_items, :method => :create %>
+  <% end %>
+  <% if current_player && current_player.admin? %>
+    | <%= link_to "delete", series, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{series.name}" %>
+  <% end %>
+</li>

@@ -1,0 +1,38 @@
+<%= form_for(@trade) do |f| %>
+ <%= render 'shared/error_messages', :object => f.object %>
+ <div class="field">
+    <%= f.label :name, "Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+ <div class="field">
+    <%= f.label :image, "Image" %><br />
+    <%= f.text_field :image %>
+  </div>
+ <div class="field">
+    <%= f.label :description, "Description" %><br />
+    <%= f.text_area :description, :rows => 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :tokens_per_pack, "Tokens per pack" %><br />
+    <%= f.text_field :tokens_per_pack %>
+  </div>
+  <div class="field">
+    <%= f.label :packs_minted, "Packs minted" %><br />
+    <%= f.text_field :packs_minted %>
+  </div>
+  <div class="field">
+    <%= f.label :packs_issued, "Packs issued" %><br />
+    <%= f.text_field :packs_issued %>
+  </div>
+  <div class="field">
+    <%= f.label :release_date, "Release date" %><br />
+    <%= f.text_field :release_date %>
+  </div>
+  <div class="field">
+    <%= f.label :term_date, "Term date" %><br />
+    <%= f.text_field :term_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit "submit" %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Listing stars</h1>
+
+<%= will_paginate %>
+
+<ul class="stars">
+  <%= render @stars %>
+</ul>
+
+<%= will_paginate %>
+
+
+<%= link_to 'New Star', new_star_path %>

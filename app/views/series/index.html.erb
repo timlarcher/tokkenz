@@ -1,0 +1,14 @@
+<h1>Listing series</h1>
+
+<%= will_paginate %>
+
+<ul class="series">
+  <%= render @series %>
+</ul>
+
+<%= will_paginate %>
+
+
+<% if admin_player? %>
+<%= link_to 'create new series', new_series_path %>
+<% end %>
